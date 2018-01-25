@@ -3,4 +3,5 @@ npm-debug.log
 *.sqlite
 config.js
 coverage
+uploads
 .nyc_output
