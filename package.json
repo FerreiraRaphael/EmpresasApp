@@ -14,7 +14,7 @@
     "lint": "eslint **/*.js --ignore-pattern client",
     "sequelize": "sequelize",
     "heroku-postbuild": "cp config/config.example.js config/config.js && npm run migrate -- --url $DATABASE_URL && npm run client-build",
-    "client-build": "cd client && npm install --only=dev && npm install && npm run ng build --env=prod"
+    "client-build": "cd client && npm install --only=dev && npm install && npm run ng build -- --env=prod"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
