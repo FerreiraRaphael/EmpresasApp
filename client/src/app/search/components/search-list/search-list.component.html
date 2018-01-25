@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="col-xs-4 col-md-2">
+        Razao Social
+      </div>
+      <div class="col-xs-2 hidden-xs hidden-sm">
+        CNPJ
+      </div>
+      <div class="col-xs-4 col-md-3">
+        Cidade
+      </div>
+      <div class="col-xs-4 col-md-3">
+        Estado
+      </div>
+      <div class="col-xs-2 hidden-xs hidden-sm">
+        Status
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!loading" class="row">
+    <app-search-list-item *ngFor="let searchResult of searchResults | async" [searchResult]="searchResult">
+    </app-search-list-item>
+  </div>
+  <div class="row" *ngIf="loading">
+    <span>Carregando...</span>
+  </div>
+</div>

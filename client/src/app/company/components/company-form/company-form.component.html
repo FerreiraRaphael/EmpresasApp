@@ -1,0 +1,45 @@
+<form #form="ngForm" novalidate>
+  <div class="col-sm-6 col-xs-12">
+    <app-input label="Razao Social">
+      <input type="text" class="form-control" name="razaoSocial" ngModel placeholder="Razao Social">
+    </app-input>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <app-input errorMessage="Só números e deve conter 14 caracteres" label="CNPJ">
+      <input minlength="14" maxlength="14" pattern="^[0-9]*$" type="text" class="form-control" name="cnpj" ngModel placeholder="CNPJ">
+    </app-input>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <app-input label="Cidade">
+      <input type="text" class="form-control" name="city" ngModel placeholder="Cidade">
+    </app-input>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <app-input label="Estado" succ>
+      <input type="text" class="form-control" name="state" ngModel placeholder="Estado">
+    </app-input>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <app-input label="Status da Empresa">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ngModel name="status"> Status da Empresa
+        </label>
+      </div>
+    </app-input>
+    <app-input label="Status da Filial">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ngModel name="branchStatus"> Status da Filial
+        </label>
+      </div>
+    </app-input>
+  </div>
+</form>
+<div class="row">
+  <div class="col-xs-12">
+    <button (click)="emitSubmit(form.value)" [disabled]="!form.valid || loading" class="btn btn-block btn-primary">
+      Criar
+    </button>
+  </div>
+</div>
