@@ -12,6 +12,8 @@ const {
   DeleteCompany
 } = require('../services/company');
 
+const { Company } = require('../models');
+
 const router = express.Router();
 
 router.route('/').post(
@@ -55,6 +57,32 @@ router.route('/').post(
 );
 router
   .route('/:CompanyId')
+  .get(
+    /**
+     * GET /api/v1/company/:CompanyId
+     * Finds a company by its id.
+     * @function findCompany
+     * @param {Request} req Express Request.
+     * @param {string} req.params.CompanyId Company Id.
+     * @param {Response} res Express Response.
+     */
+    async (req, res) => {
+      const id = req.params.CompanyId;
+      try {
+        const company = await Company.find({ where: { id } });
+        withApiResponse({
+          description: `Company with ID ${id}`,
+          body: company
+        })(res);
+      } catch (error) {
+        withApiError({
+          description: `Error while search company: ${error.message}`,
+          error,
+          code: 'routes.company.findCompany'
+        })(res);
+      }
+    }
+  )
   .put(
     /**
      * PUT /api/v1/company/:CompanyId
