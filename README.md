@@ -2,7 +2,7 @@
 
 # Empresas App
 
-App for the Oobj .
+App for the Oobj selective process.
 
 App build can be seen in [travis-ci](https://travis-ci.org/FerreiraRaphael/EmpresasApp).
 
