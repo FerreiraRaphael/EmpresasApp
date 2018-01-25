@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const faker = require('faker');
 const cnpj = require('node-cnpj');
 
