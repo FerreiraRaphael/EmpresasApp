@@ -5,7 +5,6 @@ services:
 - postgresql
 before_script:
 - npm run lint
-- cd client && npm run lint && cd ..
 - mv config/config.example.js config/config.js
 - npm run sequelize -- --env test db:create
 - npm run sequelize -- --env test db:migrate
