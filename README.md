@@ -1,17 +1,20 @@
 [![Build Status](https://travis-ci.org/FerreiraRaphael/EmpresasApp.svg?branch=master)](https://travis-ci.org/FerreiraRaphael/EmpresasApp) [![Coverage Status](https://coveralls.io/repos/github/FerreiraRaphael/EmpresasApp/badge.svg?branch=master)](https://coveralls.io/github/FerreiraRaphael/EmpresasApp?branch=master)
 
-# Express Starter
+# Empresas App
 
-This repository is a boilerplate to my projects that use Express and Sequelize.
+App for the Oobj .
 
-This boilerplate was created using the [express-example](https://github.com/sequelize/express-example) boilerplate from sequelize.
+App build can be seen in [travis-ci](https://travis-ci.org/FerreiraRaphael/EmpresasApp).
 
-To deploy this project to heroku, modify the app.json file that the root of this project, 
-and press this button.
+App test coverage can be seen in [coveralls](https://coveralls.io/github/FerreiraRaphael/EmpresasApp).
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+App can be seen in [http://empresas-app.heroku-app.com/](http://empresas-app.heroku-app.com/)
+
+Deploy done automatically when commite is done in the master branch and build in travis-ci succeeds
 
 ## Starting App
+
+### Backend
 
 Rename `config/config.example.js` to `config/config.js` 
 and adjust the it to fit your environment. 
@@ -26,7 +29,16 @@ npm start
 ```
 
 This will start the application and create an database and run it's migrations.
-Just open [http://localhost:3000](http://localhost:3000).
+Just open [http://localhost:3001](http://localhost:3001).
+
+### Angular Client
+
+Run the following commands:
+```
+cd client
+npm install
+npm start
+```
 
 ## Tests
 
@@ -35,6 +47,9 @@ There is some [Mocha](https://mochajs.org) based test. You can run them by `npm 
 ## Eslint
 
 Eslint rules extends [eslint-config-airbnb-base](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base) and [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier).
+
+## Tslint
+Tslint rules are the default of the [angular-cli](https://github.com/angular/angular-cli) project.
 
 ## Travis CI and Heroku
 
