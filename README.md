@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/FerreiraRaphael/express-starter.svg?branch=master)](https://travis-ci.org/FerreiraRaphael/express-starter) [![Coverage Status](https://coveralls.io/repos/github/FerreiraRaphael/express-starter/badge.svg?branch=master)](https://coveralls.io/github/FerreiraRaphael/express-starter?branch=master)
+[![Build Status](https://travis-ci.org/FerreiraRaphael/EmpresasApp.svg?branch=master)](https://travis-ci.org/FerreiraRaphael/EmpresasApp) [![Coverage Status](https://coveralls.io/repos/github/FerreiraRaphael/EmpresasApp/badge.svg?branch=master)](https://coveralls.io/github/FerreiraRaphael/EmpresasApp?branch=master)
 
 # Express Starter
 
