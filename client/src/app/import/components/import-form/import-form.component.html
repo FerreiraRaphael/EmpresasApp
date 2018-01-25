@@ -1,12 +1,12 @@
 <div class="col-sm-6 col-xs-12">
-  <div class="form-control">
-    <input (change)="onChange($event)" type="text" class="form-control" name="razaoSocial" placeholder="Razao Social" accept="text/xml">
+  <div class="form-group">
+    <input (change)="onChange($event)" type="text" class="form-control" name="razaoSocial" placeholder="Razao Social" accept="text/xml" type="file">
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
     <button (click)="onSubmit($event)" [disabled]="!file || loading" class="btn btn-block btn-primary">
-      Buscar
+      Importar
     </button>
   </div>
 </div>

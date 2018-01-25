@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImportDataService } from 'app/import/services/import-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-import-form',
@@ -9,7 +10,10 @@ import { ImportDataService } from 'app/import/services/import-data.service';
 export class ImportFormComponent implements OnInit {
   file: File;
   loading = false;
-  constructor(private importDataService: ImportDataService) {}
+  constructor(
+    private importDataService: ImportDataService,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
@@ -22,6 +26,7 @@ export class ImportFormComponent implements OnInit {
     this.importDataService.sendFile(this.file).subscribe(data => {
       this.loading = false;
       console.log(data);
+      this.router.navigate(['/search']);
     });
   }
 }
