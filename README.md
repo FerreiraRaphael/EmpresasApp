@@ -8,7 +8,7 @@ App build can be seen in [travis-ci](https://travis-ci.org/FerreiraRaphael/Empre
 
 App test coverage can be seen in [coveralls](https://coveralls.io/github/FerreiraRaphael/EmpresasApp).
 
-App can be seen in [http://empresas-app.heroku-app.com/](http://empresas-app.heroku-app.com/)
+App can be seen in [https://empresas-app.herokuapp.com/](https://empresas-app.herokuapp.com/)
 
 Deploy done automatically when commite is done in the master branch and build in travis-ci succeeds
 
