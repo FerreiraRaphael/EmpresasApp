@@ -1,0 +1,63 @@
+<form #form="ngForm" novalidate>
+  <div class="col-sm-6 col-xs-12">
+    <app-input label="CNPJ Base">
+      <input pattern="^[0-9]*$" type="text" readonly class="form-control" name="cnpjBase" [ngModel]="branch.cnpj" placeholder="CNPJ Base">
+    </app-input>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <app-input errorMessage="Só números e deve conter 6 caracteres" label="Resto do CNPJ">
+      <input minlength="6" maxlength="6" pattern="^[0-9]*$" type="text" class="form-control" name="cnpj" [ngModel]="branch.cnpj.slice(8,14)"
+        placeholder="Resto do CNPJ" [readonly]="!edit">
+    </app-input>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <app-input label="Cidade">
+      <input type="text" class="form-control" name="city" [readonly]="!edit" [ngModel]="branch.city" placeholder="Cidade">
+    </app-input>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <app-input label="Estado">
+      <input type="text" class="form-control" name="state" [readonly]="!edit" [ngModel]="branch.state" placeholder="Estado">
+    </app-input>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <app-input label="Status da Filial">
+      <div class="checkbox">
+        <label *ngIf="edit">
+          <input [ngModel]="branch.status" type="checkbox" name="status"> Status da Filial
+        </label>
+        <label *ngIf="!edit">
+          <input [ngModel]="branch.status" type="checkbox" name="status" onclick="return false;"> Status da Filial
+        </label>
+      </div>
+    </app-input>
+  </div>
+</form>
+<div *ngIf="edit" class="row">
+  <div class="col-xs-12">
+    <button (click)="emitSubmit(form.value)" [disabled]="!form.valid || loading" class="btn btn-block btn-primary">
+      Salvar
+    </button>
+  </div>
+</div>
+<div *ngIf="edit" class="row">
+  <div class="col-xs-12">
+    <button (click)="editOff()" class="btn btn-block btn-danger">
+      Cancelar
+    </button>
+  </div>
+</div>
+<div *ngIf="!edit" class="row">
+  <div class="col-xs-12">
+    <button (click)="editOn()" class="btn btn-block btn-success">
+      Editar
+    </button>
+  </div>
+</div>
+<div *ngIf="!edit" class="row">
+  <div class="col-xs-12">
+    <button (click)="emitDelete()" class="btn btn-block btn-danger">
+      Deletar
+    </button>
+  </div>
+</div>

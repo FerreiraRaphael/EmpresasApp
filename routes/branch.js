@@ -12,6 +12,8 @@ const {
   DeleteBranch
 } = require('../services/branch');
 
+const { Branch } = require('../models');
+
 const router = express.Router();
 
 router.route('/').post(
@@ -53,6 +55,32 @@ router.route('/').post(
 );
 router
   .route('/:BranchId')
+  .get(
+    /**
+     * GET /api/v1/branch/:BranchId
+     * Find a branch by its id.
+     * @function updateBranch
+     * @param {Request} req Express Request.
+     * @param {string} req.params.BranchId Branch Id.
+     * @param {Response} res Express Response.
+     */
+    async (req, res) => {
+      const id = req.params.BranchId;
+      try {
+        const branch = await Branch.find({ where: { id } });
+        withApiResponse({
+          description: `Branch with ID ${id}`,
+          body: branch
+        })(res);
+      } catch (error) {
+        withApiError({
+          description: `Error while searching branch: ${error.message}`,
+          error,
+          code: 'routes.branch.findBranch'
+        })(res);
+      }
+    }
+  )
   .put(
     /**
      * PUT /api/v1/branch/:BranchId
@@ -68,13 +96,10 @@ router
      */
     async (req, res) => {
       const id = req.params.BranchId;
-      const { status, city, state } = req.body;
       try {
         const branch = await UpdateBranch({
           id,
-          status,
-          city,
-          state
+          ...req.body
         });
         withApiResponse({
           description: `Branch with ID ${id} updated`,

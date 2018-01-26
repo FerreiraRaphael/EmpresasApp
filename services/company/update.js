@@ -1,5 +1,4 @@
 const { Company } = require('../../models');
-const { notNullKeys } = require('../../lib/helpers');
 
 /**
  * Updates a company.

@@ -1,5 +1,4 @@
 const { Branch } = require('../../models');
-const { notNullKeys } = require('../../lib/helpers');
 
 /**
  * Updates a Branch.
@@ -10,23 +9,13 @@ const { notNullKeys } = require('../../lib/helpers');
  * @param {string} city Branch city.
  * @returns {Promise<object, Error>} Branch and Branch objects.
  */
-function UpdateBranch({ id, status, state, city }) {
+function UpdateBranch(attributes) {
   return new Promise(async (res, rej) => {
     try {
-      const branch = await Branch.update(
-        notNullKeys({
-          state,
-          status,
-          city
-        }),
-        {
-          where: { id },
-          returning: true,
-          plain: true
-        }
-      );
+      const branch = await Branch.findById(attributes.id);
+      const result = await branch.update(attributes);
 
-      res(branch);
+      res(result);
     } catch (e) {
       rej(e);
     }

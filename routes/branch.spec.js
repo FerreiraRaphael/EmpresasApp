@@ -86,6 +86,7 @@ describe('Route api/v1/branch', () => {
         .put(`/api/v1/branch/${branch.id}`)
         .set('Accept', /application\/json/)
         .send({
+          ...branch.dataValues,
           city: 'Anapolis'
         })
         .expect(httpStatus.OK);

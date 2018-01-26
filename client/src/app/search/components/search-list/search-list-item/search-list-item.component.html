@@ -2,13 +2,13 @@
   <div class="col-xs-4 col-md-2">
     <a class="nav-link" [routerLink]="['/company/details', searchResult.CompanyId]">{{searchResult.razaoSocial}}</a>
   </div>
-  <div class="col-xs-2 hidden-xs hidden-sm">
-    {{searchResult.cnpj}}
+  <div class="col-xs-4 col-md-3">
+    <a class="nav-link" [routerLink]="['/branch/details', searchResult.id]">{{searchResult.cnpj}}</a>
   </div>
   <div class="col-xs-4 col-md-3">
     {{searchResult.city}}
   </div>
-  <div class="col-xs-4 col-md-3">
+  <div class="col-xs-2 hidden-xs hidden-sm">
     {{searchResult.state}}
   </div>
   <div class="col-xs-2 hidden-xs hidden-sm">
