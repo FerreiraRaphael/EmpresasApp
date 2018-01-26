@@ -97,12 +97,10 @@ router
      */
     async (req, res) => {
       const id = req.params.CompanyId;
-      const { status, razaoSocial } = req.body;
       try {
         const company = await UpdateCompany({
           id,
-          status,
-          razaoSocial
+          ...req.body
         });
         withApiResponse({
           description: `Company with ID ${id} updated`,
