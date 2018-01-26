@@ -10,10 +10,9 @@ import { NotFoundScreenComponent } from 'app/shared/screens/not-found-screen/not
 import { HeaderComponent } from 'app/shared/components/header/header.component';
 import { InputComponent } from './shared/components/input/input.component';
 import { SharedModule } from 'app/shared/shared.module';
-import { CompanyFormContainerComponent } from './containers/containers/company-form-container.component';
 
 @NgModule({
-  declarations: [AppComponent, CompanyFormContainerComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     FormsModule,
