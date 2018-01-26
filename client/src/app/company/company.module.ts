@@ -8,6 +8,8 @@ import { SharedModule } from 'app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { CompanyService } from 'app/company/services/company.service';
 import { NewCompanyScreenComponent } from './screens/new-company-screen/new-company-screen.component';
+import { DetailCompanyFormComponent } from './components/detail-company-form/detail-company-form.component';
+import { DetailCompanyFormContainerComponent } from './containers/detail-company-form-container.component';
 
 @NgModule({
   imports: [CommonModule, CompanyRoutingModule, FormsModule, SharedModule],
@@ -15,7 +17,9 @@ import { NewCompanyScreenComponent } from './screens/new-company-screen/new-comp
     CompanyDetailScreenComponent,
     CompanyFormComponent,
     CompanyFormContainerComponent,
-    NewCompanyScreenComponent
+    NewCompanyScreenComponent,
+    DetailCompanyFormComponent,
+    DetailCompanyFormContainerComponent
   ],
   providers: [CompanyService]
 })

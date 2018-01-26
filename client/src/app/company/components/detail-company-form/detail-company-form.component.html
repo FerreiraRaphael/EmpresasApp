@@ -1,0 +1,52 @@
+<form #form="ngForm" novalidate (onshow)="onShow($event)">
+  <div class="col-sm-6 col-xs-12">
+    <app-input label="Razao Social">
+      <input type="text" class="form-control" [ngModel]="company.razaoSocial" name="razaoSocial" [readonly]="!edit" placeholder="Razao Social">
+    </app-input>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <app-input label="CNPJ Base">
+      <input type="text" readonly class="form-control" name="cnpj Base" [ngModel]="company.cnpjBase" placeholder="CNPJ Base">
+    </app-input>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <app-input label="Status da Empresa">
+      <div class="checkbox">
+        <label *ngIf="edit">
+          <input [ngModel]="company.status" type="checkbox" name="status"> Status da Empresa
+        </label>
+        <label *ngIf="!edit">
+          <input [ngModel]="company.status" type="checkbox" name="status" onclick="return false;"> Status da Empresa
+        </label>
+      </div>
+    </app-input>
+  </div>
+</form>
+<div *ngIf="edit" class="row">
+  <div class="col-xs-12">
+    <button (click)="emitSubmit(form.value)" [disabled]="!form.valid || loading" class="btn btn-block btn-primary">
+      Salvar
+    </button>
+  </div>
+</div>
+<div *ngIf="edit" class="row">
+  <div class="col-xs-12">
+    <button (click)="editOff()" class="btn btn-block btn-danger">
+      Cancelar
+    </button>
+  </div>
+</div>
+<div *ngIf="!edit" class="row">
+  <div class="col-xs-12">
+    <button (click)="editOn()" class="btn btn-block btn-success">
+      Editar
+    </button>
+  </div>
+</div>
+<div *ngIf="!edit" class="row">
+  <div class="col-xs-12">
+    <button (click)="emitDelete()" class="btn btn-block btn-danger">
+      Deletar
+    </button>
+  </div>
+</div>

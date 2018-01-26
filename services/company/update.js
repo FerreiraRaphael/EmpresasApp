@@ -4,23 +4,18 @@ const { notNullKeys } = require('../../lib/helpers');
 /**
  * Updates a company.
  * @function UpdateCompany
- * @param {string} id Company Id.
- * @param {string} status Company Status.
- * @param {string} razaoSocial Company Razao Social.
+ * @param {Object} attributes Company attributes.
+ * @param {string} attributes.id Company Id.
+ * @param {string} attributes.status Company Status.
+ * @param {string} attributes.razaoSocial Company Razao Social.
  * @returns {Promise<object, Error>} Company and Branch objects.
  */
-function UpdateCompany({ id, status, razaoSocial }) {
+function UpdateCompany(attributes) {
   return new Promise(async (res, rej) => {
     try {
-      const company = await Company.findById(id);
-      await company.update(
-        notNullKeys({
-          razaoSocial,
-          status
-        })
-      );
-
-      res(company);
+      const company = await Company.findById(attributes.id);
+      const result = await company.update(attributes);
+      res(result);
     } catch (e) {
       rej(e);
     }

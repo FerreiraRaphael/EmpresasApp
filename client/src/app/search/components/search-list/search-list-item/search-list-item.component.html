@@ -1,17 +1,17 @@
 <div class="col-xs-12">
-    <div class="col-xs-4 col-md-2">
-      {{searchResult.razaoSocial}}
-    </div>
-    <div class="col-xs-2 hidden-xs hidden-sm">
-        {{searchResult.cnpj}}
-    </div>
-    <div class="col-xs-4 col-md-3">
-        {{searchResult.city}}
-    </div>
-    <div class="col-xs-4 col-md-3">
-        {{searchResult.state}}
-    </div>
-    <div class="col-xs-2 hidden-xs hidden-sm">
-        {{searchResult.status}}
-    </div>
+  <div class="col-xs-4 col-md-2">
+    <a class="nav-link" [routerLink]="['/company/details', searchResult.CompanyId]">{{searchResult.razaoSocial}}</a>
   </div>
+  <div class="col-xs-2 hidden-xs hidden-sm">
+    {{searchResult.cnpj}}
+  </div>
+  <div class="col-xs-4 col-md-3">
+    {{searchResult.city}}
+  </div>
+  <div class="col-xs-4 col-md-3">
+    {{searchResult.state}}
+  </div>
+  <div class="col-xs-2 hidden-xs hidden-sm">
+    {{searchResult.status}}
+  </div>
+</div>
